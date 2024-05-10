@@ -604,36 +604,40 @@
   <script src="assets/js/main.js"></script>
 
 
-  <!--ajax Script-->
-  <script>
-    $("#submit-form").submit((e)=>{
-        e.preventDefault()
-        if ($("#name").val() === '' || $("#email").val() === '' || $("#subject").val() === '' || $("#message").val() === '') {
-        alert("Please fill out all required fields");
-        return; 
-        // Prevent form submission if required fields are empty
-    }else if (!emailPattern.test($("#email").val())) {
-        alert("Please enter a valid email address");
-        return; // Prevent form submission if email is not valid
-    }else{
+ <!--ajax Script-->
+ <script>
+  $("#submit-form").submit((e)=>{
+      e.preventDefault()
+        let emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        $.ajax({
-            url:"https://script.google.com/macros/s/AKfycbxmFfcvamBB-gJRw44HnVT4d_wrFB45ga6DA2jlWuSzOU1c4AEO47k411FBWV2fobdD0w/exec",
-            data:$("#submit-form").serialize(),
-            method:"post",
-            success:function (response){
-                alert("Form submitted successfully")
-                window.location.reload()
-                //window.location.href="https://google.com"
-            },
-            error:function (){
-                alert("Something Error")
+      if ($("#name").val() === '' || $("#email").val() === '' || $("#subject").val() === '' || $("#message").val() === '') {
+      alert("Please fill out all required fields");
+      return; 
+      // Prevent form submission if required fields are empty
+  }else if (!emailPattern.test($("#email").val())) {
+      alert("Please enter a valid email address");
+      return; // Prevent form submission if email is not valid
+  }else{
 
-            }
-        })
-      }
-    })
+      $.ajax({
+          url:"https://script.google.com/macros/s/AKfycbxmFfcvamBB-gJRw44HnVT4d_wrFB45ga6DA2jlWuSzOU1c4AEO47k411FBWV2fobdD0w/exec",
+          data:$("#submit-form").serialize(),
+      
+          method:"post",
+          success:function (response){
+              alert("Form submitted successfully")
+              window.location.reload()
+              //window.location.href="https://google.com"
+          },
+          error:function (){
+              alert("Something Error")
+
+          }
+      })
+    }
+  })
 </script>
+  
 
 
 
