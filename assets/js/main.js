@@ -1,12 +1,4 @@
-/**
-* Template Name: Personal
-* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-* Updated: Mar 17 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -46,10 +38,23 @@
     })
   }
 
+  // Set social links
+
+  document.querySelectorAll(".github-link").forEach(link => {
+    link.href = SOCIAL_LINKS.github.url;
+  });
+
+  document.querySelectorAll(".linkedin-link").forEach(link => {
+    link.href = SOCIAL_LINKS.linkedin.url;
+  });
+
+  document.querySelectorAll(".leetcode-link").forEach(link => {
+    link.href = SOCIAL_LINKS.leetcode.url;
+  });
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function(e) {
+  on('click', '.mobile-nav-toggle', function (e) {
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
@@ -58,7 +63,7 @@
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
-  on('click', '#navbar .nav-link', function(e) {
+  on('click', '#navbar .nav-link', function (e) {
     let section = select(this.hash)
     if (section) {
       e.preventDefault()
@@ -91,7 +96,7 @@
 
       if (!header.classList.contains('header-top')) {
         header.classList.add('header-top')
-        setTimeout(function() {
+        setTimeout(function () {
           sections.forEach((item) => {
             item.classList.remove('section-show')
           })
@@ -130,7 +135,7 @@
           }
         })
 
-        setTimeout(function() {
+        setTimeout(function () {
           initial_nav.classList.add('section-show')
         }, 350);
 
@@ -147,7 +152,7 @@
     new Waypoint({
       element: skilsContent,
       offset: '80%',
-      handler: function(direction) {
+      handler: function (direction) {
         let progress = select('.progress .progress-bar', true);
         progress.forEach((el) => {
           el.style.width = el.getAttribute('aria-valuenow') + '%'
@@ -155,35 +160,6 @@
       }
     })
   }
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
-    }
-  });
 
   /**
    * Porfolio isotope and filter
@@ -198,9 +174,9 @@
 
       let portfolioFilters = select('#portfolio-flters li', true);
 
-      on('click', '#portfolio-flters li', function(e) {
+      on('click', '#portfolio-flters li', function (e) {
         e.preventDefault();
-        portfolioFilters.forEach(function(el) {
+        portfolioFilters.forEach(function (el) {
           el.classList.remove('filter-active');
         });
         this.classList.add('filter-active');
@@ -254,44 +230,6 @@
 })()
 
 
-$(document).ready(function(){
-  $('#submit-form').validate({
-    rules:{
-      name:{
-      required:true,
-      minlength:3,
-      
-    },
-    email:{
-      required:true,
-      email:true
-    },
-    subject:{
-      required:true,
-    },
-    message:{
-      required:true,
-    }
-
-  },
-  messages:{
-    name:{
-    required:"Please enter your name",
-    minlength:"Name should have more than 2 Charectors "
-    },
-    email:{
-      required:"Your email is required",
-      email:" Email is not valid"
-    },
-    subject:{
-      required:"Please enter a subject for better understanding",
-    },
-    message:{
-      required:"Your feedback is nessesary for US"
-    }
-    }
-  })
-})
 
 
 
