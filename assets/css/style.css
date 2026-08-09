@@ -5,27 +5,15 @@ body {
   font-family: "Open Sans", sans-serif;
   background-color: #040404;
   color: #fff;
-  position: relative;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  background: url("../img/portfolio/buildTommorow_v1.png") top right no-repeat;
-  background-size: cover;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 100vh;
-  z-index: -1;
-}
-
-@media (min-width: 1024px) {
-  body::before {
-    background-attachment: fixed;
+@media (max-width: 991px) {
+  body {
+    background: url("../img/buildTommorow_v1.png") no-repeat;
+    background-size: cover;
+    z-index: -100;
   }
 }
-
 a {
   color: #18d26e;
   text-decoration: none;
@@ -45,6 +33,43 @@ h6 {
   font-family: "Raleway", sans-serif;
 }
 
+/*--------------------------------------------------------------*/
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  border: 2px solid red;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -491,7 +516,7 @@ section .container {
 
 .about-me .content p {
   font-size: 15px;
-} 
+}
 
 @media (max-width: 576px) {
   .about-me .content p {
@@ -524,8 +549,6 @@ section .container {
 .about-me .content p:last-child {
   margin-bottom: 0;
 }
-
-
 
 /*--------------------------------------------------------------
 # Counts
