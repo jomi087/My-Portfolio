@@ -139,6 +139,11 @@ h6 {
 # Tablet
 --------------------------------------------------------------*/
 @media (max-width: 991px) {
+  body::before {
+    filter: blur(3px);
+    transform: scale(1.05);
+  }
+
   #header {
     text-align: center;
   }
@@ -174,11 +179,6 @@ h6 {
 # Mobile
 --------------------------------------------------------------*/
 @media (max-width: 576px) {
-  body::before {
-    filter: blur(3px);
-    transform: scale(1.05);
-  }
-
   #header {
     padding: 20px;
     text-align: center;
@@ -358,13 +358,27 @@ h6 {
   top: 15px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 576px) {
   .mobile-nav-toggle {
     display: block;
   }
 
   .navbar ul {
     display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  #header.header-top .mobile-nav-toggle {
+    display: block;
+  }
+
+  #header.header-top .navbar:not(.navbar-mobile) ul {
+    display: none;
+  }
+
+  #header.header-top .navbar.navbar-mobile ul {
+    display: block;
   }
 }
 
@@ -491,7 +505,7 @@ section .container {
 
 .about-me .content p {
   font-size: 15px;
-} 
+}
 
 @media (max-width: 576px) {
   .about-me .content p {
@@ -524,8 +538,6 @@ section .container {
 .about-me .content p:last-child {
   margin-bottom: 0;
 }
-
-
 
 /*--------------------------------------------------------------
 # Counts
